@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1><a href="/">{{ site.title }}</a></h1>
+    <nav>
+      <ul>
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/posts">CTFs</a></li>
+        <li><a href="/herramientas">Herramientas</a></li>
+        <li><a href="/acerca">Acerca de</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    {{ content }}
+  </main>
+
+  <footer>
+    <p>&copy; 2025 {{ site.title }} - Powered by Jekyll & GitHub Pages</p>
+  </footer>
+</body>
+</html>
