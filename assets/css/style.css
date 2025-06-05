@@ -17,8 +17,11 @@ header {
 }
 header h1 {
   margin: 0;
-  font-size: 2rem;
+  font-size: 2.8rem;
   text-align: center;
+  color: #39ff14;
+  text-shadow: 0 0 5px #39ff14, 0 0 10px #39ff14, 0 0 20px #39ff14;
+  animation: neonPulse 2s infinite;
   width: 100%;
 }
 nav ul {
@@ -30,14 +33,20 @@ nav ul {
   gap: 2rem;
   flex-wrap: wrap;
 }
+a {
+  text-decoration: none !important;
+}
 nav a {
   color: #58a6ff;
   text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
   transition: all 0.3s ease;
 }
 nav a:hover {
   color: #39ff14;
   text-shadow: 0 0 5px #39ff14, 0 0 10px #39ff14, 0 0 20px #39ff14;
+  text-decoration: none;
 }
 main {
   padding: 1rem;
@@ -48,4 +57,26 @@ footer {
   text-align: center;
   padding: 1rem;
   border-top: 1px solid #30363d;
+}
+
+.subtitulo {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #8b949e;
+  margin-top: 0.3rem;
+  margin-bottom: 1rem;
+  font-style: italic;
+  letter-spacing: 0.5px;
+}
+
+@keyframes neonPulse {
+  0% {
+    text-shadow: 0 0 5px #39ff14, 0 0 10px #39ff14, 0 0 20px #39ff14;
+  }
+  50% {
+    text-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14, 0 0 30px #39ff14;
+  }
+  100% {
+    text-shadow: 0 0 5px #39ff14, 0 0 10px #39ff14, 0 0 20px #39ff14;
+  }
 }
