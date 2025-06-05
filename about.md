@@ -19,7 +19,7 @@ Este proyecto nace con el objetivo de compartir experiencia práctica y conocimi
 
 ## ¿Quién soy?
 
-Soy **MrDhoko**, Técnico en Administración de Sistemas Informáticos y apasionado de la seguridad informática. En este blog compartiré mis avances, retos y consejos para aprender de forma práctica y directa.
+Soy **MrDhoko**, Técnico en Administración de Sistemas Informáticos, estudiante de Ingeniería Informatica y apasionado de la seguridad informática. En este blog compartiré mis avances, retos y consejos para aprender de forma práctica y directa.
 
 ---
 

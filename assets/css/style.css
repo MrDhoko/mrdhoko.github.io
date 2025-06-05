@@ -68,6 +68,46 @@ footer {
   font-style: italic;
   letter-spacing: 0.5px;
 }
+.grid-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+.grid-section h2 {
+  text-align: center;
+  color: #58ffb0;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.grid-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.grid-section li {
+  background-color: #161b22;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 5px #0ff3, 0 0 10px #0ff3;
+  transition: transform 0.2s;
+}
+
+.grid-section li:hover {
+  transform: scale(1.02);
+}
+
+.grid-section a {
+  color: #58ffb0;
+  text-decoration: none;
+}
+
+.grid-section a:hover {
+  text-decoration: underline;
+}
+
 
 @keyframes neonPulse {
   0% {
