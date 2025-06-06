@@ -12,11 +12,18 @@
   <header>
     <h1>{{ site.title }}</h1>
     <p class="subtitulo">CTFs, herramientas de hacking y Linux desde cero</p>
-    <nav>
-      <ul>
+    <nav class="navbar">
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+<!--    <div class="menu-toggle" onclick="toggleMenu()">☰</div> !-->
+      <ul class="nav-links" id="navMenu">
         <li><a href="/">Inicio</a></li>
         <li><a href="/posts">Posts</a></li>
         <li><a href="/ctfs">CTFs</a></li>
+	<li><a href="/linux">Linux</a></li>
         <li><a href="/herramientas">Herramientas</a></li>
         <li><a href="/acerca">Acerca de</a></li>
       </ul>
@@ -30,5 +37,11 @@
   <footer>
     <p>&copy; 2025 {{ site.title }} - Powered by Jekyll & GitHub Pages</p>
   </footer>
+ <script>
+  function toggleMenu() {
+    const menu = document.getElementById('navMenu');
+    menu.classList.toggle('active');
+  }
+ </script>
 </body>
 </html>
