@@ -278,3 +278,52 @@ details li {
   }
 }
 
+.post-content h2 {
+  color: #58ffb0; /* Verde neón como en los enlaces */
+  font-weight: bold;
+  margin-top: 2rem;
+}
+
+.post-content h3 {
+  color: #8be9fd; /* Azul claro */
+  font-weight: bold;
+  margin-top: 1.5rem;
+}
+
+/* Estilo general para bloques de código */
+pre {
+  background-color: #0d1117;
+  color: #c9d1d9;
+  padding: 1rem;
+  border-radius: 10px;
+  margin: 1.5rem 0;
+  font-family: 'Courier New', Courier, monospace;
+  overflow-x: auto;
+  border: 1px solid #30363d;
+  box-shadow: 0 0 10px rgba(88, 255, 176, 0.2);
+}
+
+/* Opcional: para resaltar bash específicamente */
+.language-bash::before {
+  content: "Terminal";
+  display: block;
+  background: #161b22;
+  color: #58ffb0;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8rem;
+  border-bottom: 1px solid #30363d;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.terminal-style {
+  background-color: #300a24;
+  color: #eeeeec;
+  padding: 1rem;
+  border-radius: 8px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.95rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+  white-space: pre-wrap;
+}
