@@ -26,10 +26,6 @@ En Ubuntu, existen varias formas de abrir el terminal. A continuación, te muest
 1. Presionando las teclas `Ctrl` + `Alt` + `T` al mismo tiempo.
 2. Buscando la palabra **"Terminal"** en el menú de aplicaciones del sistema.
 
-## Imagen de ejemplo
-
-![Descripción de la imagen](/assets/images/linux/primeros-pasos.png)
-
 ---
 
 ## 2 - Prompt
