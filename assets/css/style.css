@@ -279,13 +279,13 @@ details li {
 }
 
 .post-content h2 {
-  color: #58ffb0; /* Verde neón como en los enlaces */
+  color: #58ffb0; 
   font-weight: bold;
   margin-top: 2rem;
 }
 
 .post-content h3 {
-  color: #8be9fd; /* Azul claro */
+  color: #58ffb0; 
   font-weight: bold;
   margin-top: 1.5rem;
 }
@@ -315,7 +315,7 @@ pre {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
-
+/* Intento de terminal Ubuntu
 .terminal-style {
   background-color: #300a24;
   color: #eeeeec;
@@ -326,4 +326,31 @@ pre {
   overflow-x: auto;
   margin: 1rem 0;
   white-space: pre-wrap;
+}
+*/
+#scrollToTop {
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 100;
+  background-color: #58ffb0;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 0 10px #58ffb0;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+#scrollToTop:hover {
+  background-color: #45d99c;
+  transform: scale(1.1);
+}
+.post-title {
+  text-align: center;
+  color: #58ffb0;
+  margin-bottom: 1.5rem;
 }

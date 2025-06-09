@@ -8,7 +8,7 @@ description: Guía inicial para conocer el entorno Linux y familiarizarse con el
 ---
 
 
-Para todo el contenido utilizaré el sistema Ubuntu, pero puedes utilizar el el linux que mejor se adapte a ti. Tienes que tener en cuenta que algunos comandos varían ya que hay ciertas diferencias en los paquetes de distintas distribuciones.
+Para todo el contenido utilizaré el sistema **Ubuntu**, pero puedes utilizar el linux que prefieras, solo tienes que tener en cuenta que algunos comandos varían en versiones ya que hay ciertas diferencias en los paquetes de distintas distribuciones.
 
 ## INTERFAZ DE LÍNEA DE COMANDOS (CLI)
 
@@ -19,7 +19,7 @@ Si el comando es válido, veremos un resultado o salida en el terminal. Si hay a
 
 ---
 
-## 1.1 Acceso al Terminal
+## 1 - Acceso al Terminal
 
 En Ubuntu, existen varias formas de abrir el terminal. A continuación, te muestro dos de las más comunes:
 
@@ -32,7 +32,7 @@ En Ubuntu, existen varias formas de abrir el terminal. A continuación, te muest
 
 ---
 
-## 1.2 - Prompt
+## 2 - Prompt
 
 Cuando abrimos una ventana del terminal, aparece lo que se conoce como **prompt** (o *símbolo del sistema*). Este símbolo se muestra cuando no se está ejecutando ningún comando, y también aparece una vez que finaliza la salida de un comando anterior.
 
@@ -69,7 +69,7 @@ root@equipo:~# pwd
 ```
 ---
 
-## 1.3 - Shell
+## 3 - Shell
 
 Un shell es el intérprete que traduce los comandos introducidos por un usuario en
 acciones a realizar por el sistema operativo.
@@ -97,7 +97,7 @@ There is NO WARRANTY, to the extent permitted by law.
 
 ---
 
-## 1.4 - Historial de comandos
+## 4 - Historial de comandos
 
 Al ejecutar un comando en una terminal, el comando queda registrado en el fichero **.bash_history**
 Esto está diseñado para que más adelante podamos ejecutar el mismo comando más
@@ -129,5 +129,149 @@ usuario@equipo:~$ !22
 echo $SHELL
 /bin/bash
 ```
+---
 
 ## VARIABLES DE BASH SHELL
+
+En Bash, una variable es una herramienta que permite almacenar datos temporalmente en la memoria del sistema. Estas variables tienen un nombre asignado y se eliminan automáticamente al cerrar la ventana del terminal o shell. Aun así, muchas variables importantes se recrean de forma automática al iniciar un nuevo shell.
+
+Para visualizar el contenido de una variable, usamos el comando:
+
+```bash
+echo $NOMBRE_VARIABLE
+```
+
+## - LA VARIABLE PATH
+
+Antes de hablar en detalle sobre la variable **$PATH**, es importante entender la clasificación de los comandos en el entorno Bash:
+
+- **📌 Comandos Internos:** Son conocidos también como comandos integrados. Están incluidos dentro del propio shell. Un ejemplo clásico es:
+
+```bash
+cd
+```
+Este comando permite cambiar de directorio y no requiere archivos externos, ya que Bash lo reconoce y ejecuta directamente.
+
+- **📁 Comandos Externos:** Son comandos que no están integrados en el shell. En su lugar, Bash debe buscarlos como archivos ejecutables dentro de una lista de directorios definida por la variable PATH.
+
+Por ejemplo:
+
+```bash
+ls
+```
+
+Cuando ejecutamos *ls*, Bash busca un archivo llamado *ls* en los directorios listados dentro de **PATH**.
+
+### **¿Qué es PATH?**
+PATH es una variable de entorno que contiene una lista de directorios, separados por dos puntos :, donde el sistema buscará los comandos externos que deseamos ejecutar.
+
+Si introduces un comando y recibes un error como:
+
+```bash
+command not found
+```
+
+Significa que Bash no ha podido encontrar un archivo ejecutable con ese nombre en los directorios listados en la variable PATH.
+
+```bash
+echo $PATH
+```
+
+Esto mostraá algo como:
+
+```bash
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+```
+
+Cada uno de estos directorios es un lugar donde Bash buscará comandos externos.
+
+### Añadiendo directorios al PATH
+
+Cuando creamos nuestros propios scripts, podemos querer ejecutarlos desde cualquier lugar del sistema sin escribir la ruta completa. Para eso, debemos añadir el directorio que contiene nuestros scripts a la variable de entorno **`PATH`**.
+
+#### ✅ Forma temporal (solo en la sesión actual)
+
+```bash
+export PATH="$PATH:$HOME/scripts"
+```
+
+Este cambio solo dura mientras la terminal esté abierta. Al cerrarla, el valor del **`PATH`** volverá al original.
+
+#### ✅ Forma permanente (solo terminal interactiva)
+Añade esta línea al final del archivo ~/.bashrc:
+
+```bash
+export PATH="$PATH:$HOME/scripts"
+```
+
+Después de editar, aplica los cambios con:
+
+```bash
+source ~/.bashrc
+```
+
+Este método es ideal si trabajas principalmente desde la terminal.
+
+#### ✅ Forma permanente (sesiones gráficas y terminal)
+Si deseas que el cambio se aplique en todos los contextos (sesiones SSH, gráficas, shells de login, etc.), edita el archivo ~/.profile y añade:
+
+```bash
+export PATH="$PATH:$HOME/scripts"
+```
+
+Después, cierra y vuelve a iniciar sesión para que el cambio tenga efecto.
+
+- **💡 Consejo:** Crea un directorio *scripts* en tu carpeta personal si aún no existe:
+
+```bash
+mkdir -p $HOME/scripts
+```
+
+Ahora puedes colocar allí tus scripts personales y ejecutarlos fácilmente desde cualquier lugar.
+
+Para visualizar las variables de entorno usamos el comando **`printenv`** o **`env`**
+
+
+## UTILIZAR VARIOS COMANDOS A LA VEZ
+
+### PUNTO Y COMA
+El punto y coma puede utilizarse para ejecutar varios comandos de forma consecutiva en una sola línea.
+Cada comando se ejecuta de manera independiente: el segundo comando se ejecutará tan pronto como finalice el primero, sin importar si este tuvo éxito o no.
+Del mismo modo, el tercero se ejecutará al terminar el segundo, y así sucesivamente.
+
+```bash
+usuario@equipo:~$ echo $PATH;date;pwd
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+lun 05 jun 2025 00:00:00 WEST
+/home/usuario
+```
+
+### AMPERSAND DOBLE &&
+El símbolo de ampersand doble **(&&)** actúa como un operador lógico "y".
+Esto significa que el segundo comando (el que está a la derecha del &&) solo se ejecutará si el primero ha tenido éxito (es decir, si ha devuelto un código de salida 0).
+
+Este operador es útil para encadenar comandos que dependen uno del otro.
+
+```bash
+usuario@equipo:~$ mkdir nueva_carpeta && cd nueva_carpeta
+usuario@equipo:~/nueva_carpeta$ pwd
+/home/usuario/nueva_carpeta
+```
+En este caso si el primero comando falla el segundo no se ejecuta. Por ejemplo:
+
+```bash
+usuario@equipo:~$ ls /root && date
+ls: cannot open directory '/root': Permission denied
+usuario@equipo:~$
+```
+
+### LINEA VERTICAL DOBLE ||
+El símbolo **(||)** actúa como el operador lógico "or", Si el primer comando se ejecuta con éxito, el segundo comando se omite. Si el primer comando falla, entonces se ejecutará el segundo.
+
+```bash
+usuario@equipo:~$ ls /root || date
+ls: cannot open directory '/root': Permission denied
+lun 05 jun 2025 00:00:00 WEST
+usuario@equipo:~$
+```
+
