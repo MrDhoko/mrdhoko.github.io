@@ -227,6 +227,7 @@ Ahora puedes colocar allí tus scripts personales y ejecutarlos fácilmente desd
 
 Para visualizar las variables de entorno usamos el comando **`printenv`** o **`env`**
 
+---
 
 ## UTILIZAR VARIOS COMANDOS A LA VEZ
 
@@ -271,3 +272,50 @@ lun 05 jun 2025 00:00:00 WEST
 usuario@equipo:~$
 ```
 
+---
+
+## Alias en Linux
+
+Un **alias** puede utilizarse para asignar comandos más largos a secuencias más cortas, o lo que es lo mismo, una **redefinición de comandos**.
+
+Sirven para facilitar el trabajo en la terminal y hacer más eficiente la ejecución de tareas repetitivas.
+
+### Ver los alias actuales
+
+Para visualizar los alias que el sistema tiene predefinidos, puedes usar el siguiente comando:
+
+```bash
+alias
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias grep='grep --color=auto'
+alias l='ls -CF'
+alias la='ls -A'
+alias ll='ls -alF'
+alias ls='ls --color=auto'
+```
+
+Los alias que aparecen como resultado han sido creados por los archivos de inicialización, que se ejecutan automáticamente al iniciar el sistema.
+
+### Crear un alias personalizado
+
+Puedes crear un nuevo alias con la siguiente sintaxis:
+
+```bash
+alias nombre='comando'
+```
+
+Donde:
+
+- **Nombre:** es el nombre que le quieres dar al alias.
+
+- **Comando:** es el comando que se ejecutará cuando utilices el alias.
+
+Por ejemplo:
+
+```bash
+alias actualizar='sudo apt update && sudo apt upgrade'
+```
+
+Este alias permite ejecutar la actualización del sistema con solo escribir `actualizar`.
