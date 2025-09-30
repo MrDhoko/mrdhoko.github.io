@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Directorio donde están los posts
+DIRECTORIO="_posts"
+
+# Recorremos todos los archivos .md dentro de _posts
+for FILE in "$DIRECTORIO"/*.md; do
+    # Verificamos si el archivo contiene "category:"
+    if grep -q "^category:" "$FILE"; then
+        # Extraemos el valor actual de category
+        CATEGORIA=$(grep "^category:" "$FILE" | awk '{print $2}')
+        
+        # Reemplazamos la línea por "categories: [valor]"
+        sed -i "s/^category: .*/categories: [$CATEGORIA]/" "$FILE"
+        
+        echo "✅ Modificado: $FILE → categories: [$CATEGORIA]"
+    fi
+done
+
+echo "✨ Conversión completada."

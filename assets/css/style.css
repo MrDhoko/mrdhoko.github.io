@@ -354,3 +354,66 @@ pre {
   color: #58ffb0;
   margin-bottom: 1.5rem;
 }
+/* Grid de tarjetas */
+.ctf-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+/* Tarjeta */
+.ctf-card {
+  background: #161b22;
+  border: 1px solid #30363d;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(57,255,20,0.03);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.ctf-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(57,255,20,0.06);
+}
+
+/* Metadatos */
+.ctf-card .meta {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+
+.badge {
+  background: #0d1117;
+  color: #58a6ff;
+  border: 1px solid #30363d;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  text-transform: capitalize;
+}
+
+.badge.difficulty {
+  color: #39ff14;
+}
+
+/* Extracto */
+.ctf-card .excerpt {
+  color: #8b949e;
+  font-size: 0.95rem;
+  margin-top: 0.4rem;
+}
+
+/* Ajustes para summary/details */
+details summary {
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  background: transparent;
+  color: #58a6ff;
+}
+details[open] summary {
+  color: #39ff14;
+}

@@ -1,7 +1,7 @@
 ---
 title: "Ayuda en ubuntu"
 date: 2025-06-12
-category: linux
+categories: [linux]
 description: "Saber encontrar ayuda cuando trabajas en Linux es una habilidad esencial para cualquier usuario."
 layout: post
 subcategory: basico
